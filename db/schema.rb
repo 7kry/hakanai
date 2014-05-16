@@ -11,17 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140516183437) do
+ActiveRecord::Schema.define(version: 20140516203406) do
 
   create_table "users", force: true do |t|
-    t.integer  "user_id"
+    t.string   "provider"
+    t.string   "user_id"
     t.string   "screen_name"
     t.string   "name"
-    t.string   "profile_image"
+    t.binary   "profile_image"
     t.string   "descripton"
-    t.boolean  "link_twitter"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "users", ["provider", "user_id"], name: "index_users_on_provider_and_user_id", using: :btree
 
 end
