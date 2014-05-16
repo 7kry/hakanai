@@ -2,14 +2,10 @@
 
 one:
   user_id: 1
-  token: MyString
-  token_secret: MyString
   screen_name: MyString
   name: MyString
 
 two:
   user_id: 1
-  token: MyString
-  token_secret: MyString
   screen_name: MyString
   name: MyString
