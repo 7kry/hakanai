@@ -1,5 +1,5 @@
 
-default: default
+default: &default
   twitter:
     consumer_key:
     consumer_secret:
