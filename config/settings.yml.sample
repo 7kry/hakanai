@@ -1,0 +1,14 @@
+
+default: default
+  twitter:
+    consumer_key:
+    consumer_secret:
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+
+production:
+  <<: *default

@@ -16,9 +16,6 @@ default: &default
   username: hakanai
   password:
   socket: /run/mysqld/mysqld.sock
-  twitter:
-    consumer_key:
-    consumer_secret:
 
 development:
   <<: *default
