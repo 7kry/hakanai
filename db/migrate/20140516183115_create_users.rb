@@ -4,6 +4,7 @@ class CreateUsers < ActiveRecord::Migration
       t.integer :user_id
       t.string :screen_name
       t.string :name
+      t.string :profile_image
 
       t.timestamps
     end

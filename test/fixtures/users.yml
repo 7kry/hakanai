@@ -4,8 +4,10 @@ one:
   user_id: 1
   screen_name: MyString
   name: MyString
+  profile_image: MyString
 
 two:
   user_id: 1
   screen_name: MyString
   name: MyString
+  profile_image: MyString
