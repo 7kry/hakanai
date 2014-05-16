@@ -11,6 +11,11 @@ Rails.application.routes.draw do
   get '/auth/:provider/callback' => 'sessions#callback'
   get '/logout' => 'sessions#destroy', :as => :logout
 
+  get '/profile/:provider/:user_id' => 'profile#view'
+  get '/profile/edit' => 'profile#edit'
+  post '/profile/save' => 'profile#save'
+  get '/profile' => 'profile#index'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
