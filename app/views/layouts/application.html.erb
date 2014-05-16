@@ -9,9 +9,9 @@
 <body>
 
 <% if current_user %>
-  <%= current_user.name %> <%= link_to 'ログアウト', logout_path %>
+  <%= current_user.provider.capitalize %>:<%= current_user.screen_name %> <%= link_to 'Logout', logout_path %>
 <% else %>
-  <%= link_to 'ログイン', '/auth/twitter' %>
+  <%= link_to 'Login with Twitter', '/auth/twitter' %>
 <% end %>
 
 <%= yield %>

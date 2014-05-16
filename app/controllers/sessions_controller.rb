@@ -1,7 +1,14 @@
 class SessionsController < ApplicationController
   def callback
-    auth = request.env['omniauth.auth']
-    user = User.find_by_provider_and_uid(auth['provider'], auth['uid']) || User.create_with_omniauth(auth)
+    p auth = request.env['omniauth.auth']
+
+    red_to =\
+      if user = User.find_by(provider: auth['provider'], user_id: auth['uid'])
+        root_path
+      else
+        user = User.create_with_omniauth(auth)
+        root_path
+      end
     session[:user_id] = user.id
     redirect_to root_path
   end
