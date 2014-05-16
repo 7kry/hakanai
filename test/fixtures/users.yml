@@ -5,9 +5,13 @@ one:
   screen_name: MyString
   name: MyString
   profile_image: MyString
+  descripton: MyString
+  link_twitter: false
 
 two:
   user_id: 1
   screen_name: MyString
   name: MyString
   profile_image: MyString
+  descripton: MyString
+  link_twitter: false

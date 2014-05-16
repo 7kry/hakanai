@@ -5,6 +5,8 @@ class CreateUsers < ActiveRecord::Migration
       t.string :screen_name
       t.string :name
       t.string :profile_image
+      t.string :descripton
+      t.boolean :link_twitter
 
       t.timestamps
     end
