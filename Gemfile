@@ -39,3 +39,6 @@ gem 'unicorn'
 # gem 'debugger', group: [:development, :test]
 
 gem 'foreigner'
+gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'settingslogic'

@@ -16,6 +16,9 @@ default: &default
   username: root
   password:
   host: localhost
+  twitter:
+    consumer_key: 
+    consumer_secret: 
 
 development:
   <<: *default
