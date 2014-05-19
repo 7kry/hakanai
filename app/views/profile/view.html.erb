@@ -1,0 +1,15 @@
+<h1><%= image_tag(
+  "/%s/%d/icon" % [@user.provider, @user.user_id],
+  :alt => "%s:%d" % [@user.provider.capitalize, @user.user_id],
+  :style => "width: auto; height: 128px",
+  ) %>
+<%= @user.name %> (<%=
+  case @user.provider
+  when "twitter"
+    link_to "Twitter", "https://twitter.com/%s" % @user.screen_name
+  end
+%>)
+</h1>
+
+<h2>自己紹介</h2>
+<p> <%= @user.description %></p>
