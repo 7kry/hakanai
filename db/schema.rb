@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140516203406) do
+ActiveRecord::Schema.define(version: 20140519102348) do
 
   create_table "users", force: true do |t|
     t.string   "provider"
@@ -19,11 +19,10 @@ ActiveRecord::Schema.define(version: 20140516203406) do
     t.string   "screen_name"
     t.string   "name"
     t.binary   "profile_image"
-    t.string   "descripton"
+    t.string   "description"
+    t.boolean  "is_moderator"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_index "users", ["provider", "user_id"], name: "index_users_on_provider_and_user_id", using: :btree
 
 end

@@ -6,10 +6,10 @@ class CreateUsers < ActiveRecord::Migration
       t.string :screen_name
       t.string :name
       t.binary :profile_image
-      t.string :descripton
+      t.string :description
+      t.boolean :is_moderator
 
       t.timestamps
     end
-    add_index :users, [:provider, :user_id]
   end
 end
