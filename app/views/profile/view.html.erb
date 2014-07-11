@@ -1,12 +1,12 @@
 <h1><%= image_tag(
-  "/%s/%d/icon" % [@user.provider, @user.user_id],
-  :alt => "%s:%d" % [@user.provider.capitalize, @user.user_id],
+  "/profile/%s/%d/icon" % [@user.provider, @user.user_id],
+  :alt => "%s:%s" % [@user.provider.capitalize, @user.screen_name],
   :style => "width: auto; height: 128px",
   ) %>
 <%= @user.name %> (<%=
   case @user.provider
   when "twitter"
-    link_to "Twitter", "https://twitter.com/%s" % @user.screen_name
+    link_to "Twitter", "https://twitter.com/%s" % @user.screen_name, target: "_blank"
   end
 %>)
 </h1>

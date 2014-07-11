@@ -18,8 +18,11 @@ class ProfileController < ApplicationController
   end
 
   def icon
-    send_data(
-      User.find_by(:provider => @provider, :user_id => @user_id).profile_image,
-      :disposition => :inline)
+    user = User.find_by(:provider => params[:provider], :user_id => params[:id])
+    if user && user.profile_image
+      send_data(user.profile_image)
+    else
+      redirect_to "/noicon.png"
+    end
   end
 end
