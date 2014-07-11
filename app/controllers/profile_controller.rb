@@ -1,5 +1,9 @@
 class ProfileController < ApplicationController
   def index
+    if session[:user_id].nil?
+      redirect_to '/please_login'
+      return
+    end
     @user = User.find(session[:user_id])
     self.view
   end

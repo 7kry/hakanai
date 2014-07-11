@@ -6,6 +6,11 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <!-- Bootstrap -->
   <%= stylesheet_link_tag 'https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css' %>
+  <style>
+  .main-containts {
+    padding-top: 75px;
+  }
+  </style>
   <!--[if lt IE 9]>
     <%= javascript_include_tag 'https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js' %>
     <%= javascript_include_tag 'https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js' %>
@@ -31,7 +36,7 @@
     </div>
   </div>
 
-  <div class='container'>
+  <div class='container main-containts'>
     <%= yield %>
   </div>
 
