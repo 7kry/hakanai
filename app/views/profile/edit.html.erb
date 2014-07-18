@@ -1,0 +1,23 @@
+<form action='/profile/save' method='POST'>
+  <h1>アイコン</h1>
+  <div><%= image_tag(
+  "/profile/%s/%d/icon" % [@user.provider, @user.user_id],
+  :alt => "%s:%s" % [@user.provider.capitalize, @user.screen_name],
+  :style => "width: auto; height: 128px",
+  ) %></div>
+  <input name='icon' type='file' />
+
+  <h1>名前</h1>
+  <%= text_field "user", "name" %>
+
+  <h1>自己紹介</h1>
+  <%= text_area "user", "description" %>
+
+  <hr />
+  <button type='submit'>保存</button>
+</form>
+
+<script>
+$("button[type='submit']").button();
+$("input[type!='text']").button();
+</script>

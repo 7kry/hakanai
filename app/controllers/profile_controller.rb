@@ -9,6 +9,11 @@ class ProfileController < ApplicationController
   end
 
   def edit
+    if session[:user_id].nil?
+      redirect_to '/please_login'
+      return
+    end
+    @user = User.find(session[:user_id])
   end
 
   def view

@@ -2,19 +2,16 @@
 <html>
 <head>
   <title><% if defined? @pagetitle then %><%= @pagetitle %> - <% end %>運命とは避けがたく時に儚いSNS</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <!-- Bootstrap -->
   <%= stylesheet_link_tag 'https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css' %>
-  <style>
-  .main-containts {
-    padding-top: 75px;
-  }
-  </style>
   <!--[if lt IE 9]>
     <%= javascript_include_tag 'https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js' %>
     <%= javascript_include_tag 'https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js' %>
   <![endif]-->
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
   <%= csrf_meta_tags %>
 </head>
 <body>
