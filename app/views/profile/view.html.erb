@@ -12,7 +12,7 @@
 </h1>
 
 <h2>自己紹介</h2>
-<p> <%= @user.description %></p>
+<p><%= multiline_html @user.description %></p>
 
 <% if @user.id == session[:user_id] %>
 <a id='edit-profile' href='/profile/edit'>プロフィールを編集する</a>

@@ -21,6 +21,11 @@ class ProfileController < ApplicationController
       if not @user
         @user = User.find(params[:id])
       end
+      if @user.deleted
+        @message = "そのユーザは削除されました。"
+        render 'error/not_found', status: 410
+        return
+      end
       render :action => 'view'
     rescue ActiveRecord::RecordNotFound
       @message = "そのユーザは存在しません。"
