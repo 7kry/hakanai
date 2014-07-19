@@ -19,7 +19,7 @@ class ProfileController < ApplicationController
   def view
     begin
       if not @user
-        @user = User.find(params[:id]) 
+        @user = User.find(params[:id])
       end
       render :action => 'view'
     rescue ActiveRecord::RecordNotFound
@@ -30,6 +30,16 @@ class ProfileController < ApplicationController
   end
 
   def save
+    if session[:user_id].nil?
+      render 'error/please_login', status: 403
+      return
+    end
+    @user = User.find(session[:user_id])
+
+    @user.attributes = params.require(:user).permit(:name, :description, :provider_visible)
+    @user.save
+
+    redirect_to '/profile'
   end
 
   def icon

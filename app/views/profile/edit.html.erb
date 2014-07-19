@@ -1,11 +1,12 @@
 <form action='/profile/save' method='POST'>
+<%= form_for "user" do |f| %>
   <h1>アイコン</h1>
   <div><%= image_tag(
-  "/profile/%s/%d/icon" % [@user.provider, @user.user_id],
+  "/profile/%d/icon" % @user.user_id,
   :alt => "%s:%s" % [@user.provider.capitalize, @user.screen_name],
   :style => "width: auto; height: 128px",
   ) %></div>
-  <div><input name='icon' type='file' /></div>
+  <%= f.file_field "icon", accept: "image/*" %>
 
   <h1>名前</h1>
   <%= text_field "user", "name" %>
@@ -14,13 +15,16 @@
   <%= text_area "user", "description" %>
 
   <h1><%= @user.provider.capitalize %>へのリンク</h1>
-  <%= check_box "user", "provider_visible" %> 表示する
+  <%= check_box "user", "provider_visible" %><label for='user_provider_visible'><%= @user.provider_visible ? "表示する" : "表示しない" %></label>
 
   <hr />
-  <button type='submit'>保存</button>
-</form>
+
+  <%= f.submit "保存" %>
+<% end %>
 
 <script>
-$("button[type='submit']").button();
-$("input[type='file']").button();
+$("input[type!='text']").button();
+$("#user_provider_visible").change(function(){
+  $("label[for='user_provider_visible'] .ui-button-text").text($(this).prop("checked") ? "表示する" : "表示しない");
+});
 </script>
