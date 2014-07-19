@@ -5,7 +5,7 @@
   :alt => "%s:%s" % [@user.provider.capitalize, @user.screen_name],
   :style => "width: auto; height: 128px",
   ) %></div>
-  <input name='icon' type='file' />
+  <div><input name='icon' type='file' /></div>
 
   <h1>名前</h1>
   <%= text_field "user", "name" %>
@@ -13,11 +13,14 @@
   <h1>自己紹介</h1>
   <%= text_area "user", "description" %>
 
+  <h1><%= @user.provider.capitalize %>へのリンク</h1>
+  <%= check_box "user", "provider_visible" %> 表示する
+
   <hr />
   <button type='submit'>保存</button>
 </form>
 
 <script>
 $("button[type='submit']").button();
-$("input[type!='text']").button();
+$("input[type='file']").button();
 </script>
