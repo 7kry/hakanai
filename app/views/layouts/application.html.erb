@@ -33,8 +33,8 @@
         <a class="navbar-brand" href="/"><img src='/favicon.ico' alt='儚' /></a>
       </div>
       <ul class='nav navbar-nav navbar-right'>
-<% if @user = current_user %>
-        <li><a href='/profile'><%= @user.provider.capitalize %>:<%= @user.screen_name %></a></li>
+<% if @current_user = current_user %>
+        <li><a href='/profile'><%= @current_user.provider.capitalize %>:<%= @current_user.screen_name %></a></li>
         <li><%= link_to 'Logout', logout_path %></li>
 <% else %>
   <li><a class="dropdown-toggle" type="button" id="LoginMenu" data-toggle="dropdown">Login</a>
