@@ -1,3 +1,6 @@
+<% if @user = current_user %>
+<h1><%= @user.name %>さん、シ・ル・ブ・プ・レ♪</h1>
+<% else %>
 <h1>運命とは避けがたく時に儚いもの</h1>
 
 <p>Ruby on Railsでそれなりの開発をやってみたくなったのに、スキルもないし教えてくれる人もいないこともあるように、運命とは避けがたく時に儚いもの。</p>
@@ -10,5 +13,6 @@
 
 <h2>誰か助けて</h2>
 開発者は<a href='https://twitter.com/_7kry' target='_blank'>私</a>です。<br />
-ソースコードは<a href='https://github.com/7kry/hakanai' target='_blank'>ここ</a>にあります。<br />
+ソースコードは<a href='https://github.com/7kry/hakanai' target='_blank'>ここ</a>にあります。バグ報告とかも<a href='https://github.com/7kry/hakanai/issues' target='_blank'>こっち</a>でおねがいします。<br />
 なんとなくお察しいただけるかとは思いますが、開発者はWebアプリ開発やらWebデザインやらが滅法できません。誰か教えてくだされ〜。
+<% end %>

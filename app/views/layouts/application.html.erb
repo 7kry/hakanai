@@ -28,11 +28,11 @@
         <a class="navbar-brand" href="/"><img src='/favicon.ico' alt='儚' /></a>
       </div>
       <ul class='nav navbar-nav navbar-right'>
-<% if current_user %>
-        <li><a href='/profile'><%= current_user.provider.capitalize %>:<%= current_user.screen_name %></a></li>
+<% if @user = current_user %>
+        <li><a href='/profile'><%= @user.provider.capitalize %>:<%= @user.screen_name %></a></li>
         <li><%= link_to 'Logout', logout_path %></li>
 <% else %>
-  <li><button class="btn btn-default dropdown-toggle" type="button" id="LoginMenu" data-toggle="dropdown">Login</button>
+  <li><a class="dropdown-toggle" type="button" id="LoginMenu" data-toggle="dropdown">Login</a>
     <ul class="dropdown-menu" role="menu" aria-labelledby="LoginMenu">
       <li><%= link_to 'with Twitter', '/auth/twitter' %></li>
       <li><%= link_to 'with Facebook', '/auth/facebook' %></li>
@@ -46,6 +46,8 @@
     <%= yield %>
   </div>
 
+  <hr />
+  <p style='text-align:right'>Help me on <a href='https://github.com/7kry/hakanai' target='_blank'>GitHub</a><br />バグ報告は<a href='https://github.com/7kry/hakanai/issues' target='_blank'>こっち</a>。<br />よかったら<a href='https://twitter.com/_7kry' target='_blank'>Followしてやってください</a>。</p>
   <!-- Bootstrap -->
   <%= javascript_include_tag 'https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js' %>
 </body>
