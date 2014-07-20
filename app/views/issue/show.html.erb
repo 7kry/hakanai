@@ -1,0 +1,2 @@
+<p><%= @issue.first %>、<%= @issue.second %>ように、運命とは避けがたく時に儚いもの。</p>
+<p style='text-align:right'>at <%= link_to @issue.created_at, "/issue/%d" % @issue.id %> by <%= image_tag "/profile/%d/icon" % @issued_by.id, size: "24x24", alt: "icon:%s" % @issued_by.name %><%= link_to @issued_by.name, "/profile/%d" % @issued_by.id %></p>

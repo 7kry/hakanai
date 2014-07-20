@@ -7,7 +7,11 @@ class ApplicationController < ActionController::Base
     if session[:user_id]
       @user = User.find(session[:user_id])
     else
-      render 'error/please_login', status: 403
+      if params[:format] == "json"
+        render json: {error: 'Please login.'}, status: 401
+      else
+        render 'error/please_login', status: 401
+      end
       nil
     end
   end

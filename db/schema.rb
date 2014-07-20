@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140719225659) do
+ActiveRecord::Schema.define(version: 20140720183638) do
+
+  create_table "issues", force: true do |t|
+    t.integer  "user_id"
+    t.text     "first"
+    t.text     "second"
+    t.boolean  "deleted"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "issues", ["user_id"], name: "issues_user_id_fk", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "provider"
@@ -25,5 +36,7 @@ ActiveRecord::Schema.define(version: 20140719225659) do
     t.boolean  "provider_visible"
     t.boolean  "deleted",          default: false
   end
+
+  add_foreign_key "issues", "users", name: "issues_user_id_fk"
 
 end

@@ -19,8 +19,16 @@ class ProfileController < ApplicationController
         render 'error/not_found', status: 410
         return
       end
-      @pagetitle = "#{ @user.name }さんのプロフィール"
-      render :action => 'view'
+      if params[:format] == "json"
+        ret = @user.attributes.clone
+        ret.delete("profile_image")
+        render json: ret
+      else
+        @pagetitle = "#{ @user.name }さんのプロフィール"
+        @issues    = @user.issue
+        render :action => 'view'
+        return
+      end
     rescue ActiveRecord::RecordNotFound
       @message = "そのユーザは存在しません。"
       render 'error/not_found', status: 404

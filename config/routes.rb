@@ -15,6 +15,10 @@ Rails.application.routes.draw do
   post '/profile/save'     => 'profile#save'
   get  '/profile'          => 'profile#index'
 
+  get  '/issue/create' => 'issue#create'
+  post '/issue/create' => 'issue#create'
+  get  '/issue/:id'    => 'issue#show'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

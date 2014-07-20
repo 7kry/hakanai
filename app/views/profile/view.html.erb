@@ -20,6 +20,13 @@
 <a id='edit-profile' href='/profile/edit'>プロフィールを編集する</a>
 <% end %>
 
+<h2>投稿</h2>
+<ul id='issues'>
+<% @issues.each{|elem| %>
+  <li><div><%= elem.first %>、<%= elem.second %>ように、運命とは避けがたく時に儚いもの。</div><div><%= link_to elem.created_at, "/issue/%d" % elem.id %></div></li>
+<% } %>
+</ul>
+
 <script>
 $("#edit-profile").button();
 </script>
