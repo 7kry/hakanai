@@ -1,7 +1,7 @@
 class ProfileController < ApplicationController
   def index
     login_required or return
-    self.view
+    redirect_to "/profile/#{ @user.id }"
   end
 
   def edit

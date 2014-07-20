@@ -7,6 +7,8 @@
   case @user.provider
   when "twitter"
     link_to "Twitter", "https://twitter.com/%s" % @user.screen_name, target: "_blank"
+  when "facebook"
+    link_to "Facebook", "https://www.facebook.com/app_scoped_user_id/%d" % @user.user_id, target: "_blank"
   end
   %>)<% end  %>
 </h1>

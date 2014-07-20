@@ -32,7 +32,11 @@
         <li><a href='/profile'><%= current_user.provider.capitalize %>:<%= current_user.screen_name %></a></li>
         <li><%= link_to 'Logout', logout_path %></li>
 <% else %>
-        <li><%= link_to 'Login', '/auth/twitter' %></li>
+  <li><button class="btn btn-default dropdown-toggle" type="button" id="LoginMenu" data-toggle="dropdown">Login</button>
+    <ul class="dropdown-menu" role="menu" aria-labelledby="LoginMenu">
+      <li><%= link_to 'with Twitter', '/auth/twitter' %></li>
+      <li><%= link_to 'with Facebook', '/auth/facebook' %></li>
+    </ul></li>
 <% end %>
       </ul>
     </div>

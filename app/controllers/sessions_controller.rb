@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
     p auth = request.env['omniauth.auth']
 
     if user = User.find_by(provider: auth['provider'], user_id: auth['uid'])
-      user.screen_name = auth['info']['nickname']
+      user.screen_name = auth['info']['nickname'] || auth['info']['name']
       user.save
     else
       user = User.create_with_omniauth(auth)
