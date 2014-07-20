@@ -1,8 +1,9 @@
 <%= form_for("user", multipart: true, url: "/profile/save") do |f| %>
+  <div><a href='/profile'>←自分のプロフィールに戻る</a></div>
   <h1>アイコン</h1>
   <div><%= image_tag(
   "/profile/%d/icon" % @user.id,
-  :alt => "%s:%s" % [@user.provider.capitalize, @user.screen_name],
+  :alt => "icon:%s" % [@user.name],
   :style => "width: auto; height: 128px",
   ) %></div>
   <%= f.file_field "profile_image", accept: "image/*" %>

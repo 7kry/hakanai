@@ -5,11 +5,11 @@ class ApplicationController < ActionController::Base
 
   def login_required
     if session[:user_id]
-      @current_user = User.find(session[:user_id])
+      @user = User.find(session[:user_id])
     else
-      redirect_to root_path
+      render 'error/please_login', status: 403
+      nil
     end
-
   end
 
   helper_method :current_user

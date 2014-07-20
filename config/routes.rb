@@ -1,14 +1,4 @@
 Rails.application.routes.draw do
-  get 'error/not_found'
-
-  get 'error/please_login'
-
-  get 'profile/edit'
-
-  get 'profile/view'
-
-  get 'profile/index'
-
   # get 'home/index'
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -24,7 +14,6 @@ Rails.application.routes.draw do
   get  '/profile/edit'     => 'profile#edit'
   post '/profile/save'     => 'profile#save'
   get  '/profile'          => 'profile#index'
-  get  '/please_login'     => 'please_login#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

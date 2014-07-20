@@ -43,6 +43,7 @@ gem 'unicorn'
 gem 'foreigner'
 gem 'omniauth'
 gem 'omniauth-twitter'
+gem 'omniauth-facebook'
 gem 'settingslogic'
 
 # for Icon uploader

@@ -1,19 +1,12 @@
 class ProfileController < ApplicationController
   def index
-    if session[:user_id].nil?
-      render 'error/please_login', status: 403
-      return
-    end
-    @user = User.find(session[:user_id])
+    login_required or return
     self.view
   end
 
   def edit
-    if session[:user_id].nil?
-      render 'error/please_login', status: 403
-      return
-    end
-    @user = User.find(session[:user_id])
+    login_required or return
+    @pagetitle = "プロフィールを編集"
   end
 
   def view
@@ -26,6 +19,7 @@ class ProfileController < ApplicationController
         render 'error/not_found', status: 410
         return
       end
+      @pagetitle = "#{ @user.name }さんのプロフィール"
       render :action => 'view'
     rescue ActiveRecord::RecordNotFound
       @message = "そのユーザは存在しません。"
@@ -35,11 +29,7 @@ class ProfileController < ApplicationController
   end
 
   def save
-    if session[:user_id].nil?
-      render 'error/please_login', status: 403
-      return
-    end
-    @user = User.find(session[:user_id])
+    login_required or return
 
     @user.attributes = params.require(:user).permit(:name, :description, :provider_visible)
     if img = params.fetch(:user, {}).fetch(:profile_image, nil)
