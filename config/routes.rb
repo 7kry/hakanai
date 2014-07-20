@@ -9,9 +9,9 @@ Rails.application.routes.draw do
   get '/auth/:provider/callback' => 'sessions#callback'
   get '/logout' => 'sessions#destroy', :as => :logout
 
+  get  '/profile/edit'     => 'profile#edit'
   get  '/profile/:id'      => 'profile#view'
   get  '/profile/:id/icon' => 'profile#icon'
-  get  '/profile/edit'     => 'profile#edit'
   post '/profile/save'     => 'profile#save'
   get  '/profile'          => 'profile#index'
 
