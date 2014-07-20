@@ -1,12 +1,11 @@
-<form action='/profile/save' method='POST'>
-<%= form_for "user" do |f| %>
+<%= form_for("user", multipart: true, url: "/profile/save") do |f| %>
   <h1>アイコン</h1>
   <div><%= image_tag(
-  "/profile/%d/icon" % @user.user_id,
+  "/profile/%d/icon" % @user.id,
   :alt => "%s:%s" % [@user.provider.capitalize, @user.screen_name],
   :style => "width: auto; height: 128px",
   ) %></div>
-  <%= f.file_field "icon", accept: "image/*" %>
+  <%= f.file_field "profile_image", accept: "image/*" %>
 
   <h1>名前</h1>
   <%= text_field "user", "name" %>

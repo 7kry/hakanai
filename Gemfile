@@ -45,4 +45,5 @@ gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'settingslogic'
 
-gem 'ImageResize'
+# for Icon uploader
+gem 'rmagick', :require => 'RMagick'

@@ -42,13 +42,16 @@ class ProfileController < ApplicationController
     @user = User.find(session[:user_id])
 
     @user.attributes = params.require(:user).permit(:name, :description, :provider_visible)
+    if img = params.fetch(:user, {}).fetch(:profile_image, nil)
+      @user.profile_image = p Magick::Image::from_blob(img.read).first.resize_to_fit(128, 128).to_blob
+    end
     @user.save
 
     redirect_to '/profile'
   end
 
   def icon
-    user = User.find_by(:provider => params[:provider], :user_id => params[:id])
+    user = User.find_by(:id => params[:id])
     if user && user.profile_image
       send_data(user.profile_image)
     else
